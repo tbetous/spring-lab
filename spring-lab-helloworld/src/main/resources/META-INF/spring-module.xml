@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- 
+    Here is the BeanFactoryPostPrecessor called "PropertyPlaceholderConfigurer".
+    It is executed before to create the bean in order to prepare th configuration file.
+    The PropertyPlaceHolderConfigurer take a properties file and inject them into this file.
+    All ${name} will be replace by the value of "name" into configuration.properties.
+    -->
+    <context:property-placeholder location="classpath:META-INF/configuration.properties"/>
+    
+    <!-- This is another syntax to call to create a PropertyPlaceholderConfigurer
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath*:META-INF/configuration.properties"/>
+    </bean>
+    -->
+    
+    <!-- Create an instance of HelloWorld to be injected in the code -->
+    <bean id="helloBean" class="com.tbetous.springlab.helloworld.HelloWorld">
+        <property name="name" value="${name}"/>
+    </bean>
+</beans>
