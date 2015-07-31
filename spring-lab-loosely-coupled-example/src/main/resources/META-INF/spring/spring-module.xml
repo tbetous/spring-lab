@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Create two beans, one for CSV, the other one for JSON -->
+    <bean id="csvOutputGenerator" class="com.tbetous.springlab.output.impl.CsvOutputGenerator"/>
+    <bean id="jsonOutputGenerator" class="com.tbetous.springlab.output.impl.JsonOutputGenerator"/>
+    
+    <!-- Create a bean OutputHelper with jsonOutputGenerator -->
+    <bean id="outputHelper" class="com.tbetous.springlab.output.OutputHelper">
+        <!-- With property the object will be created and initialized with setter -->
+        <property name="outputGenerator" ref="jsonOutputGenerator"/>
+        
+        <!--  With constructor-arg the will be construct with the given parameter -->
+        <!--  <constructor-arg name="outputGenerator" ref="jsonOutputGenerator"/> -->
+    </bean>
+    
+
+</beans>
