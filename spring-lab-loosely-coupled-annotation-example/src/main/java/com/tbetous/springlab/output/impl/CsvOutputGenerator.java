@@ -1,10 +1,13 @@
 package com.tbetous.springlab.output.impl;
 
+import javax.inject.Named;
+
 import org.springframework.stereotype.Component;
 
 import com.tbetous.springlab.output.IOutputGenerator;
 
-@Component(value="csvOutput") // If not value, by default class name "csvOutputGenerator"
+@Named
+@CsvOutputGeneratorQualifier
 public class CsvOutputGenerator implements IOutputGenerator {
     public void generateOutput(){
         System.out.println("Csv Output Generator");

@@ -1,13 +1,14 @@
 package com.tbetous.springlab.helloworld;
 
+import javax.inject.Named;
+
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 /* 
- * The annotation indicate this class is a spring componant
+ * The annotation indicate this class must be created by Spring
  * The associated String is considered as the suggested name.
  */
-@Component("helloBean")
+@Named("helloBean")
 public class HelloWorld {
     
     // When the bean is create, the name will take the value set by the placeholder (see spring-module.xml)
