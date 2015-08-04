@@ -5,7 +5,8 @@ import javax.inject.Named;
 import com.tbetous.springlab.user.data.User;
 import com.tbetous.springlab.user.service.UserService;
 
-@Named @UserServiceImplQualifier
+@Named 
+@UserServiceImplQualifier
 public class UserServiceImpl implements UserService{
 
     public void createUser(User user) {
