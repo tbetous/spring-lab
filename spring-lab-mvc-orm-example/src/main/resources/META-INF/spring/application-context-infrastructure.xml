@@ -39,6 +39,10 @@
         <property name="jpaProperties" ref="jpaProperties" />
     </bean>
     
+    <!-- Make a proxy around the entity manager to create a new one for each request (it is not threadsafe) -->
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+    
+    <bean id="userDaoFullJPA" class="com.tbetous.springlab.dao.impl.UserDaoFullJPA"/>
 
     
     

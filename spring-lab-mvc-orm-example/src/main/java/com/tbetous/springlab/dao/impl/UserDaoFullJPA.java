@@ -15,11 +15,11 @@ public class UserDaoFullJPA implements UserDao {
     
     private EntityManager em;
 
-    @PersistenceContext
     public EntityManager getEm() {
         return em;
     }
 
+    @PersistenceContext
     public void setEm(EntityManager em) {
         this.em = em;
     }

@@ -15,7 +15,7 @@ import com.tbetous.springlab.service.UserService;
 public class UserServiceImpl implements UserService {
     
     @Autowired
-    @Qualifier("userDaoJDBC")
+    @Qualifier("userDaoFullJPA")
     public UserDao userDao;
 
     @Override
